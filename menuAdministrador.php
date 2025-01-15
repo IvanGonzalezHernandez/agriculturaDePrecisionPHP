@@ -12,9 +12,9 @@ if (!isset($_SESSION['email'])) {
 
 // Obtener el usuario logueado
 $email = $_SESSION['email'];
-$query = "SELECT u.*, r.nombre AS rol FROM usuarios u JOIN roles r ON u.rol_id = r.id WHERE u.email = '$email'";
-$result = mysqli_query($conexion, $query);
-$user = mysqli_fetch_assoc($result);
+$consultaUsuarioLogeado = "SELECT u.*, r.nombre AS rol FROM usuarios u JOIN roles r ON u.rol_id = r.id WHERE u.email = '$email'";
+$resultado = mysqli_query($conexion, $consultaUsuarioLogeado);
+$user = mysqli_fetch_assoc($resultado);
 
 // Verificar el rol del usuario
 $rol = $user['rol'];
@@ -31,6 +31,7 @@ if ($rol !== 'admin') {
     <head>
         <meta charset="UTF-8">
         <title>Menú - Admin</title>
+        <link rel="stylesheet" type="text/css" href="./css/style.css">
     </head>
     <body>
         <h2>Bienvenido, <?php echo $user['nombre']; ?> (<?php echo $rol; ?>)</h2>
@@ -40,6 +41,10 @@ if ($rol !== 'admin') {
         <h3>Panel de Administración</h3>
         <p>Bienvenido al panel de administración. Aquí puedes gestionar usuarios, roles, etc.</p>
 
-        <p><a href="login.php">Cerrar sesión</a></p>
+        
+        
+            
+            <form action='gestionarUsuarios.php'><button>Gestionar usuarios</button></form>
+            <p><a href="login.php">Cerrar sesión</a></p>
     </body>
 </html>

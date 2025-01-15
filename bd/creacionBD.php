@@ -6,16 +6,20 @@
     </head>
     <body>
         <?php
-        // Incluir la conexión
-        include('conexion.php');
+        // Conectar con el servidor de base de datos
+        $conexion = mysqli_connect("localhost", "root", "");
 
         // Crear la base de datos
-        $crearBD = "CREATE DATABASE IF NOT EXISTS AgriculturaDePrecision";
+        $crearBD = "CREATE DATABASE IF NOT EXISTS agriculturaDePrecision";
         if (mysqli_query($conexion, $crearBD)) {
-            echo "Se ha creado la base de datos AgriculturaDePrecision correctamente.<br>";
+            echo "Se ha creado la base de datos agriculturadeprecision correctamente.<br>";
         } else {
-            die("Error al crear la base de datos AgriculturaDePrecision: " . mysqli_error($conexion));
+            die("Error al crear la base de datos agriculturadeprecision: " . mysqli_error($conexion));
         }
+
+        // Seleccionar base de datos
+        mysqli_select_db($conexion, "agriculturaDePrecision")
+                or die("No se puede seleccionar la base de datos");
 
         // Crear las tablas
         // Tabla de roles
@@ -59,6 +63,20 @@
         } else {
             echo "Error al crear la tabla 'usuarios': " . mysqli_error($conexion) . "<br>";
         }
+
+        // Insertar usuarios en la tabla
+        $insertarUsuarios = "
+            INSERT IGNORE INTO usuarios (nombre, email, password, rol_id) VALUES
+            ('Administrador', 'admin@gmail.com', '" . password_hash('1234', PASSWORD_DEFAULT) . "', 1),
+            ('Agricultor', 'agricultor@gmail.com', '" . password_hash('1234', PASSWORD_DEFAULT) . "', 2),
+            ('Maquinista', 'maquinista@gmail.com', '" . password_hash('1234', PASSWORD_DEFAULT) . "', 3);
+        ";
+        if (mysqli_query($conexion, $insertarUsuarios)) {
+            echo "Usuarios insertados correctamente.<br>";
+        } else {
+            echo "Error al insertar usuarios: " . mysqli_error($conexion) . "<br>";
+        }
+
 
         // Tabla de Agricultores (extiende Usuario)
         $crearAgricultores = "CREATE TABLE IF NOT EXISTS agricultores (
