@@ -45,6 +45,7 @@ if ($rol !== 'admin') {
         
             
             <form action='gestionarUsuarios.php'><button>Gestionar usuarios</button></form>
+            <form action='gestionarTrabajos.php'><button>Gestionar trabajos</button></form>
             <p><a href="login.php">Cerrar sesión</a></p>
     </body>
 </html>
