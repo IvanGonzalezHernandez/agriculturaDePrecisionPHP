@@ -88,6 +88,7 @@
             nombre VARCHAR(100) NOT NULL,
             password VARCHAR(255) NOT NULL,
             email VARCHAR(100) NOT NULL,
+            estado ENUM('Libre', 'Ocupado') DEFAULT 'Libre', -- Estado del trabajador
             FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
         );";
         if (mysqli_query($conexion, $crearMaquinistas)) {
@@ -101,6 +102,7 @@
         $crearMaquinas = "CREATE TABLE IF NOT EXISTS maquinas (
             idMaquina INT AUTO_INCREMENT PRIMARY KEY,
             modelo VARCHAR(100) NOT NULL,
+            tipo ENUM('Arado', 'Siembra','Cosecha', 'Riego'), -- Breve descripción del trabajo
             capacidad INT NOT NULL,
             anho INT NOT NULL,
             estado ENUM('Libre', 'Ocupada', 'Reparando') DEFAULT 'Libre' -- Estado del trabajo
@@ -222,12 +224,12 @@
 
         // Consulta para insertar datos en la tabla maquinas
         $insertarDatosMaquinas = "
-        INSERT INTO maquinas (modelo, capacidad, anho) VALUES
-        ('Excavadora XZ100', 5000, 2020),
-        ('Retroexcavadora RX200', 3000, 2018),
-        ('Grúa Industrial GI500', 15000, 2021),
-        ('Compactadora CP300', 2000, 2019),
-        ('Cargadora CL400', 4000, 2022);
+        INSERT INTO maquinas (modelo,tipo, capacidad, anho) VALUES
+        ('Excavadora XZ100','Arado', 5000, 2020),
+        ('Retroexcavadora RX200','Siembra', 3000, 2018),
+        ('Grúa Industrial GI500','Riego', 15000, 2021),
+        ('Compactadora CP300','Cosecha', 2000, 2019),
+        ('Cargadora CL400','Arado', 4000, 2022);
         ";
 
         // Ejecutar la consulta
