@@ -39,7 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['eliminar'])) {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Encriptar la contraseña
     $rol = $_POST['rol'];  // El valor de 'rol' ya es un id
-
     // Insertar datos en la tabla 'usuarios'
     $anadirUsuario = "INSERT INTO usuarios (nombre, email, password, rol_id) 
             VALUES ('$nombre', '$email', '$password', '$rol')";
@@ -61,10 +60,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['eliminar'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Añadir Usuario</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
-
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h2>Tabla de Usuarios</h2>
         <table border="1">
             <tr>
@@ -90,8 +91,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['eliminar'])) {
             ?>
         </table>
 
-        <h3>Añadir Nuevo Usuario</h3>
+        
         <form action="" method="POST">
+            <h3>Añadir Nuevo Usuario:</h3>
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" required>
 

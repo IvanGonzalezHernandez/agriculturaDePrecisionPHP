@@ -1,0 +1,101 @@
+[
+    {
+        "referencia": "123456789012345",
+        "direccion": "Calle Ejemplo, 1, Madrid",
+        "superficie": "120 m²",
+        "propietario": "Juan Pérez",
+        "tipo_inmueble": "Vivienda Unifamiliar",
+        "numero_plantas": 2,
+        "valor_catastral": "250000 EUR",
+        "coordenadas": {
+            "latitud": 40.4168,
+            "longitud": -3.7038
+        },
+        "plano": "./img/catastro1.webp",
+        "caracteristicas": {
+            "antiguedad": "15 años",
+            "estado": "Buen estado",
+            "accesibilidad": "Acceso por carretera asfaltada",
+            "tipo_de_terreno": "Urbano"
+        },
+        "descripcion": "Vivienda unifamiliar de 2 plantas, con jardín privado. Bien ubicada en el centro de Madrid.",
+        "limitaciones": [
+            "Prohibido construir más de 2 plantas.",
+            "Zonas protegidas de vegetación cerca."
+        ]
+    },
+    {
+        "referencia": "987654321098765",
+        "direccion": "Avenida Ficticia, 10, Barcelona",
+        "superficie": "80 m²",
+        "propietario": "María Gómez",
+        "tipo_inmueble": "Apartamento",
+        "numero_plantas": 1,
+        "valor_catastral": "180000 EUR",
+        "coordenadas": {
+            "latitud": 41.3851,
+            "longitud": 2.1734
+        },
+        "plano": "./img/catastro2.jpg",
+        "caracteristicas": {
+            "antiguedad": "8 años",
+            "estado": "Excelente estado",
+            "accesibilidad": "Acceso por transporte público",
+            "tipo_de_terreno": "Urbano"
+        },
+        "descripcion": "Apartamento de una sola planta con balcón, ubicado en el corazón de Barcelona, cerca de las principales vías de comunicación.",
+        "limitaciones": [
+            "El uso de la propiedad está restringido a fines residenciales."
+        ]
+    },
+    {
+        "referencia": "111223344556677",
+        "direccion": "Calle Larga, 25, Valencia",
+        "superficie": "150 m²",
+        "propietario": "Carlos García",
+        "tipo_inmueble": "Local Comercial",
+        "numero_plantas": 1,
+        "valor_catastral": "350000 EUR",
+        "coordenadas": {
+            "latitud": 39.4699,
+            "longitud": -0.3763
+        },
+        "plano": "./img/catastro3.jpg",
+        "caracteristicas": {
+            "antiguedad": "20 años",
+            "estado": "Requiere algunas reformas",
+            "accesibilidad": "Acceso desde la calle principal",
+            "tipo_de_terreno": "Comercial"
+        },
+        "descripcion": "Local comercial en la planta baja de un edificio de 3 plantas, en una zona muy transitada de Valencia.",
+        "limitaciones": [
+            "Uso restringido a actividades comerciales.",
+            "No se puede modificar la fachada."
+        ]
+    },
+    {
+        "referencia": "223344556677889",
+        "direccion": "Paseo Marítimo, 50, Málaga",
+        "superficie": "200 m²",
+        "propietario": "Ana López",
+        "tipo_inmueble": "Chalet",
+        "numero_plantas": 3,
+        "valor_catastral": "600000 EUR",
+        "coordenadas": {
+            "latitud": 36.7213,
+            "longitud": -4.4216
+        },
+        "plano": "./img/catastro4.jpg",
+        "caracteristicas": {
+            "antiguedad": "5 años",
+            "estado": "Excelente estado",
+            "accesibilidad": "Acceso privado por carretera asfaltada",
+            "tipo_de_terreno": "Urbano"
+        },
+        "descripcion": "Chalet con vistas al mar, 3 plantas, piscina privada, y jardín. Ubicado en una zona residencial exclusiva.",
+        "limitaciones": [
+            "Prohibido añadir más construcciones en el jardín.",
+            "Zonas comunes restringidas para residentes."
+        ]
+    }
+]

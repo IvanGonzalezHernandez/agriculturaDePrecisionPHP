@@ -151,6 +151,25 @@
             echo "Error al crear la tabla 'trabajos': " . mysqli_error($conexion) . "<br>";
         }
 
+        // Crear la tabla de facturas
+        $crearFacturas = "
+        CREATE TABLE IF NOT EXISTS facturas (
+        idFactura INT AUTO_INCREMENT PRIMARY KEY,
+        idUsuario INT NOT NULL,
+        idMaquinista INT NOT NULL,
+        PdfFactura VARCHAR(255) NOT NULL,
+        estado ENUM('Pendiente', 'Pagada') DEFAULT 'Pendiente',
+        FOREIGN KEY (idUsuario) REFERENCES usuarios(id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY (idMaquinista) REFERENCES maquinistas(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+        );
+        ";
+
+        if (mysqli_query($conexion, $crearFacturas)) {
+            echo "Tabla 'facturas' creada correctamente.<br>";
+        } else {
+            echo "Error al crear la tabla 'facturas': " . mysqli_error($conexion) . "<br>";
+        }
+
 
         //Triggers
         $crearTriggerAgricultores = "
@@ -188,25 +207,7 @@
         } else {
             echo "Error al crear el trigger 'insertar_en_maquinistas': " . mysqli_error($conexion) . "<br>";
         }
-/*
-        $crearTriggerTrabajo = "
-        CREATE TRIGGER insertar_id_en_trabajo
-        AFTER INSERT ON usuarios
-        FOR EACH ROW
-        BEGIN
-            IF NEW.rol_id = 3 THEN -- Verifica si el rol es de 'maquinista'
-                INSERT INTO trabajo (idUsuario) 
-                VALUES (NEW.id);
-        END IF;
-        END;
-        ";
 
-        if (mysqli_query($conexion, $crearTriggerTrabajo)) {
-            echo "Trigger 'insertar_id_en_trabajo' creado correctamente.<br>";
-        } else {
-            echo "Error al crear el trigger 'insertar_id_en_trabajo': " . mysqli_error($conexion) . "<br>";
-        }
-*/
         // Insertar usuarios en la tabla
         $insertarUsuarios = "
         INSERT IGNORE INTO usuarios (nombre, email, password, rol_id) VALUES

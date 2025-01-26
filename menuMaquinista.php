@@ -74,9 +74,12 @@ if (isset($_POST['idTrabajo'])) {
     <head>
         <meta charset="UTF-8">
         <title>Dashboard - Maquinista</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h2>Bienvenido, <?php echo $user['nombre']; ?> (<?php echo $rol; ?>)</h2>
 
         <p>Correo electrónico: <?php echo $user['email']; ?></p>

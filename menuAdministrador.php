@@ -31,9 +31,12 @@ if ($rol !== 'admin') {
     <head>
         <meta charset="UTF-8">
         <title>Menú - Admin</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h2>Bienvenido, <?php echo $user['nombre']; ?> (<?php echo $rol; ?>)</h2>
 
         <p>Correo electrónico: <?php echo $user['email']; ?></p>
@@ -41,13 +44,13 @@ if ($rol !== 'admin') {
         <h3>Panel de Administración</h3>
         <p>Bienvenido al panel de administración. Aquí puedes gestionar usuarios, roles, etc.</p>
 
-        
-        
-            
-            <form action='gestionarUsuarios.php'><button>Gestionar usuarios</button></form>
-            <form action='addMaquinaTrabajo.php'><button>Añadir Máquina a trabajo</button></form>
-            <form action='addMaquinistaTrabajo.php'><button>Añadir Maquinista a trabajo</button></form>
-            <form action='gestionarFacturas.php'><button>Gestionar facturas</button></form>
-            <p><a href="login.php">Cerrar sesión</a></p>
+
+
+
+        <form action='gestionarUsuarios.php'><button>Gestionar usuarios</button></form>
+        <form action='addMaquinaTrabajo.php'><button>Añadir Máquina a trabajo</button></form>
+        <form action='addMaquinistaTrabajo.php'><button>Añadir Maquinista a trabajo</button></form>
+        <form action='gestionarFacturas.php'><button>Gestionar facturas</button></form>
+        <p><a href="login.php">Cerrar sesión</a></p>
     </body>
 </html>

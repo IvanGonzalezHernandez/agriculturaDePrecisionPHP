@@ -28,7 +28,7 @@ $resultado = mysqli_query($conexion, $consulta);
 if (isset($_POST['idTrabajo']) && isset($_POST['idMaquinista'])) {
     $idTrabajo = $_POST['idTrabajo'];
     $idMaquinista = $_POST['idMaquinista'];
-    
+
     // Consulta para asignar el maquinista al trabajo (evitando duplicación)
     $consulta = "
         UPDATE trabajo
@@ -36,10 +36,9 @@ if (isset($_POST['idTrabajo']) && isset($_POST['idMaquinista'])) {
         WHERE idTrabajo = '$idTrabajo' AND idMaquinista IS NULL;
     ";
     $asignacionExitosa = mysqli_query($conexion, $consulta);
-    
+
     header("Location: addMaquinistaTrabajo.php");
     exit();
-
 }
 ?>
 
@@ -48,9 +47,12 @@ if (isset($_POST['idTrabajo']) && isset($_POST['idMaquinista'])) {
     <head>
         <meta charset="UTF-8">
         <title>Trabajos Pendientes</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h1>Añadir Maquinista</h1>
         <?php
         if ($resultado && mysqli_num_rows($resultado) > 0) {

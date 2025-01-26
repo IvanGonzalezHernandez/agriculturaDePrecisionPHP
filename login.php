@@ -49,26 +49,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
-    <h2>Iniciar sesión</h2>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login</title>
+        <link rel="stylesheet" href="./css/logo.css">
+    </head>
+    <body>
 
-    <!-- Mostrar error si las credenciales son incorrectas -->
-    <?php if (isset($error)) {
-        echo "<p style='color:red;'>$error</p>";
-    } ?>
 
-    <form method="POST" action="login.php">
-        <label for="email">Email:</label>
-        <input type="email" name="email" required><br>
+        <div class="login-container">
+            <form method="POST" action="login.php" class="login-form">
+                <img src="./logo/agrarium_logo.png" alt="Logo agrarium" class="logo"/>
+                <h2>Iniciar sesión</h2>
+                <!-- Mostrar error si las credenciales son incorrectas -->
+                <?php
+                if (isset($error)) {
+                    echo "<p style='color:red;'>$error</p>";
+                }
+                ?>
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" required><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" required>
 
-        <button type="submit">Iniciar sesión</button>
-    </form>
-</body>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+        </div>
+    </body>
 </html>
+

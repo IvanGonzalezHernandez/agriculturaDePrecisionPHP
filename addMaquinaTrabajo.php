@@ -28,7 +28,7 @@ $resultado = mysqli_query($conexion, $consulta);
 if (isset($_POST['idTrabajo']) && isset($_POST['idMaquina'])) {
     $idTrabajo = $_POST['idTrabajo'];
     $idMaquina = $_POST['idMaquina'];
-    
+
 // Consultas
     // Consulta para asignar la máquina al trabajo (sin duplicar la máquina)
     $consulta = "
@@ -37,7 +37,7 @@ if (isset($_POST['idTrabajo']) && isset($_POST['idMaquina'])) {
     WHERE idTrabajo = '$idTrabajo' AND idMaquina IS NULL;
 ";
     $asignacionExitosa = mysqli_query($conexion, $consulta);
-    
+
     // Si la asignación al trabajo fue exitosa
     if ($asignacionExitosa) {
         // Consulta para marcar la máquina como "Ocupada"
@@ -46,10 +46,10 @@ if (isset($_POST['idTrabajo']) && isset($_POST['idMaquina'])) {
         SET estado = 'Ocupada'
         WHERE idMaquina = '$idMaquina' AND estado = 'Libre';
         ";
-        
+
         // Ejecutar la consulta para cambiar el estado de la máquina
         $estadoOcupada = mysqli_query($conexion, $maquinaOcupada);
-        
+
         // Si ambas consultas fueron exitosas
         if ($estadoOcupada) {
             header("Location: addMaquinaTrabajo.php");
@@ -68,9 +68,12 @@ if (isset($_POST['idTrabajo']) && isset($_POST['idMaquina'])) {
     <head>
         <meta charset="UTF-8">
         <title>Trabajos Pendientes</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h1>Añadir Máquina</h1>
         <?php
         if ($resultado && mysqli_num_rows($resultado) > 0) {

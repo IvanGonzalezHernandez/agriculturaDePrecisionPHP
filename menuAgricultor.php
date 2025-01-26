@@ -98,13 +98,14 @@ if (isset($_POST['add_trabajo'])) {
     <head>
         <meta charset="UTF-8">
         <title>Dashboard - Agricultor</title>
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/estilo.css">
     </head>
     <body>
 
 
-
-
+        <?php
+        include('./logo/logo.php');
+        ?>
         <h2>Bienvenido, <?php echo $user['nombre']; ?> (<?php echo $rol; ?>)</h2>
 
         <p>Correo electrónico: <?php echo $user['email']; ?></p>
@@ -141,8 +142,9 @@ if (isset($_POST['add_trabajo'])) {
             ?>
         </table>
 
-        <h4>Añadir una nueva parcela</h4>
+        
         <form method="POST" action="">
+            <h3>Añadir una nueva parcela:</h3>
             <label for="catastro">Catastro:</label>
             <input type="text" id="catastro" name="catastro" required>
             <br>
@@ -153,8 +155,9 @@ if (isset($_POST['add_trabajo'])) {
         </form>
 
 
-        <h4>Solicitar trabajo en parcela</h4>
+        
         <form method="POST" action="">
+            <h3>Solicitar trabajo en parcela:</h3>
             <label for="parcela">Seleccionar parcela:</label>
             <select id="parcela" name="idParcela" required>
                 <?php
@@ -184,6 +187,15 @@ if (isset($_POST['add_trabajo'])) {
             echo "<p>$mensaje</p>";
         }
         ?>
+        
+        
+        <form action='./referenciaCatastral/catastro/datosCatastrales.php'>
+            <h3>Consulta estadisticas de tus parcelas:</h3>
+            <button>Datos Catastrales</button></form>
+        
+        <form action='pagarFacturas.php'>
+            <h3>Consulta y paga tus  facturas:</h3>
+            <button>Pagar Facturas</button></form>
 
         <p><a href="login.php">Cerrar sesión</a></p>
 
